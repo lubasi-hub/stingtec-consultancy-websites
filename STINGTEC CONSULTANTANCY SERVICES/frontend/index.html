@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STINGTEC BUSINESS CONSULTANTS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Desktop Navigation (Top Bar) -->
+    <nav class="desktop-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="STINGTEC Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button id="signInBtn" class="btn btn-outline">Sign In</button>
+                <button id="signUpBtn" class="btn btn-primary">Sign Up</button>
+                <button id="signOutBtn" class="btn btn-outline hidden">Sign Out</button>
+                <button id="adminBtn" class="btn btn-primary hidden">Admin</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-logo">
+            <img src="logo.png" alt="STINGTEC Logo" class="logo-img-mobile">
+        </div>
+        <div class="mobile-auth">
+            <button id="mobileSignInBtn" class="btn btn-outline btn-small">Sign In</button>
+            <button id="mobileSignUpBtn" class="btn btn-primary btn-small">Sign Up</button>
+            <button id="mobileSignOutBtn" class="btn btn-outline btn-small hidden">Sign Out</button>
+            <button id="mobileAdminBtn" class="btn btn-primary btn-small hidden">Admin</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Sidebar Navigation -->
+    <aside class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#home" class="sidebar-link active">Home</a></li>
+            <li><a href="#services" class="sidebar-link">Services</a></li>
+            <li><a href="#blog" class="sidebar-link">Blog</a></li>
+            <li><a href="#contact" class="sidebar-link">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <!-- Hero with Background Image Slider -->
+            <div class="hero-slider">
+                <div class="hero-slide active" style="background-image: url('img1.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('img2.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('img3.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('img4.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('img5.jpg')"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-tagline">Your Partner in Business Growth & Compliance</span>
+                    <h1 class="hero-title"><span class="stingtec">STINGTEC</span> <span class="business">BUSINESS</span> <span class="consultants">CONSULTANTS</span></h1>
+                    <p class="hero-description">Complete business registration, regulatory compliance, and professional support services in Zambia</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary btn-large">Our Services</a>
+                        <a href="#contact" class="btn btn-outline btn-large">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                </div>
+            </div>
+            <!-- Statistics Section -->
+            <div class="stats-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Businesses Registered</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">17+</span>
+                            <span class="stat-label">Services Offered</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Compliance Success</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="about-section">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-image">
+                            <img src="img4.jpg" alt="STINGTEC Team">
+                        </div>
+                        <div class="about-content">
+                            <h2>Who We Are</h2>
+                            <p>STINGTEC Business Consultants is your trusted partner in business growth and compliance in Zambia. We specialize in helping entrepreneurs and businesses navigate the complex regulatory landscape while providing comprehensive support services.</p>
+                            <p>Our team of experts ensures your business is properly registered, fully compliant with all statutory requirements, and equipped with the documentation needed for success.</p>
+                            <a href="#services" class="link-arrow">View Our Services ›</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Vision Section -->
+            <div class="mission-section">
+                <div class="container">
+                    <div class="mission-grid">
+                        <div class="mission-card">
+                            <h4>Our Mission</h4>
+                            <p>To simplify business registration and compliance processes for entrepreneurs in Zambia, enabling them to focus on growing their businesses while we handle the regulatory requirements.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>Our Vision</h4>
+                            <p>To be Zambia's leading business consultancy firm, recognized for excellence in regulatory compliance and business support services that drive economic growth.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>Our Values</h4>
+                            <p>Integrity, professionalism, efficiency, and client satisfaction guide everything we do. We believe in building lasting relationships through exceptional service delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="page-section">
+            <div class="section-header">
+                <div class="container">
+                    <h1>Our Services</h1>
+                    <p>Comprehensive business solutions for growth and compliance</p>
+                </div>
+            </div>
+            <div class="container">
+                <h2 class="services-category">Business Setup & Registration</h2>
+                <div class="services-grid" id="servicesGrid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+                        <h3>Business Registration</h3>
+                        <p>Complete business registration services for new and existing businesses.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Setup & Registration';document.getElementById('bookingServiceName').value='Business Registration';document.getElementById('bookingServiceDisplay').textContent='Business Registration';document.getElementById('bookingCategoryDisplay').textContent='Business Setup & Registration';}else{alert('Modal not found');}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Company Incorporation</h3>
+                        <p>Professional company incorporation and legal entity formation services.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Setup & Registration';document.getElementById('bookingServiceName').value='Company Incorporation';document.getElementById('bookingServiceDisplay').textContent='Company Incorporation';document.getElementById('bookingCategoryDisplay').textContent='Business Setup & Registration';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.seeklogo.com/logo-png/42/1/zambia-revenue-authority-zra-logo-png_seeklogo-398765.png" alt="ZRA Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-calculator" style="display:none;"></i>
+                        </div>
+                        <h3>ZRA Services</h3>
+                        <p>Zambia Revenue Authority tax registration and compliance services.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Setup & Registration';document.getElementById('bookingServiceName').value='ZRA Services';document.getElementById('bookingServiceDisplay').textContent='ZRA Services';document.getElementById('bookingCategoryDisplay').textContent='Business Setup & Registration';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://www.napsa.co.zm/wp-content/uploads/2023/06/cropped-NAPSA-Logo-150x150.png" alt="NAPSA Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-piggy-bank" style="display:none;"></i>
+                        </div>
+                        <h3>NAPSA Registration</h3>
+                        <p>National Pension Scheme Authority registration for employers.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Setup & Registration';document.getElementById('bookingServiceName').value='NAPSA Registration';document.getElementById('bookingServiceDisplay').textContent='NAPSA Registration';document.getElementById('bookingCategoryDisplay').textContent='Business Setup & Registration';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://enhima.nhima.co.zm/assets/images/logo.png" alt="NHIMA Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-heartbeat" style="display:none;"></i>
+                        </div>
+                        <h3>NHIMA Registration</h3>
+                        <p>National Health Insurance Management Authority registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Setup & Registration';document.getElementById('bookingServiceName').value='NHIMA Registration';document.getElementById('bookingServiceDisplay').textContent='NHIMA Registration';document.getElementById('bookingCategoryDisplay').textContent='Business Setup & Registration';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://www.workers.com.zm/wp-content/uploads/2023/01/Workers-Compensation-Fund-Control-Board-Logo.png" alt="Workers Compensation Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-hard-hat" style="display:none;"></i>
+                        </div>
+                        <h3>Workers Compensation</h3>
+                        <p>Workers Compensation Fund Control Board registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Setup & Registration';document.getElementById('bookingServiceName').value='Workers Compensation Registration';document.getElementById('bookingServiceDisplay').textContent='Workers Compensation Registration';document.getElementById('bookingCategoryDisplay').textContent='Business Setup & Registration';}return false;">Request Service</button>
+                    </div>
+                </div>
+
+                <h2 class="services-category">Statutory & Regulatory Registrations</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://www.zppa.org.zm/wp-content/uploads/2023/06/ZPPA-Logo-150x150.png" alt="ZPPA Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-gavel" style="display:none;"></i>
+                        </div>
+                        <h3>ZPPA Registration</h3>
+                        <p>Zambia Public Procurement Authority registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Statutory & Regulatory Registrations';document.getElementById('bookingServiceName').value='ZPPA Registration';document.getElementById('bookingServiceDisplay').textContent='ZPPA Registration';document.getElementById('bookingCategoryDisplay').textContent='Statutory & Regulatory Registrations';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://www.ceec.org.zm/wp-content/uploads/2023/06/CEEC-Logo-150x150.png" alt="CEEC Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-balance-scale" style="display:none;"></i>
+                        </div>
+                        <h3>CEEC Registration</h3>
+                        <p>Citizens Economic Empowerment Commission registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Statutory & Regulatory Registrations';document.getElementById('bookingServiceName').value='CEEC Registration';document.getElementById('bookingServiceDisplay').textContent='CEEC Registration';document.getElementById('bookingCategoryDisplay').textContent='Statutory & Regulatory Registrations';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://portal.eiz.org.zm/wp-content/uploads/2023/06/EIZ-Logo-150x150.png" alt="EIZ Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-cogs" style="display:none;"></i>
+                        </div>
+                        <h3>EIZ Registration</h3>
+                        <p>Engineering Institution of Zambia registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Statutory & Regulatory Registrations';document.getElementById('bookingServiceName').value='EIZ Registration';document.getElementById('bookingServiceDisplay').textContent='EIZ Registration';document.getElementById('bookingCategoryDisplay').textContent='Statutory & Regulatory Registrations';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://www.ncc.org.zm/wp-content/uploads/2023/06/NCC-Logo-150x150.png" alt="NCC Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-clipboard-check" style="display:none;"></i>
+                        </div>
+                        <h3>NCC Registration</h3>
+                        <p>National Construction Council registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Statutory & Regulatory Registrations';document.getElementById('bookingServiceName').value='NCC Registration';document.getElementById('bookingServiceDisplay').textContent='NCC Registration';document.getElementById('bookingCategoryDisplay').textContent='Statutory & Regulatory Registrations';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.seeklogo.com/logo-png/42/1/zambia-environmental-management-agency-zema-logo-png_seeklogo-427084.png" alt="ZEMA Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-leaf" style="display:none;"></i>
+                        </div>
+                        <h3>ZEMA Registration</h3>
+                        <p>Zambia Environmental Management Agency registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Statutory & Regulatory Registrations';document.getElementById('bookingServiceName').value='ZEMA Registration';document.getElementById('bookingServiceDisplay').textContent='ZEMA Registration';document.getElementById('bookingCategoryDisplay').textContent='Statutory & Regulatory Registrations';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://warma.org.zm/wp-content/uploads/2023/06/WARMA-Logo-150x150.png" alt="WARMA Logo" class="org-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <i class="fas fa-water" style="display:none;"></i>
+                        </div>
+                        <h3>WARMA Registration</h3>
+                        <p>Water Resources Management Authority registration.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Statutory & Regulatory Registrations';document.getElementById('bookingServiceName').value='WARMA Registration';document.getElementById('bookingServiceDisplay').textContent='WARMA Registration';document.getElementById('bookingCategoryDisplay').textContent='Statutory & Regulatory Registrations';}return false;">Request Service</button>
+                    </div>
+                </div>
+
+                <h2 class="services-category">Business Support Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+                        <h3>Auditing</h3>
+                        <p>Professional auditing services for businesses of all sizes.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Support Services';document.getElementById('bookingServiceName').value='Auditing';document.getElementById('bookingServiceDisplay').textContent='Auditing';document.getElementById('bookingCategoryDisplay').textContent='Business Support Services';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                        <h3>Business Plan Writing</h3>
+                        <p>Comprehensive business plan development and writing services.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Support Services';document.getElementById('bookingServiceName').value='Business Plan Writing';document.getElementById('bookingServiceDisplay').textContent='Business Plan Writing';document.getElementById('bookingCategoryDisplay').textContent='Business Support Services';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-id-card"></i></div>
+                        <h3>Company Profile Writing</h3>
+                        <p>Professional company profile and corporate documentation.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Support Services';document.getElementById('bookingServiceName').value='Company Profile Writing';document.getElementById('bookingServiceDisplay').textContent='Company Profile Writing';document.getElementById('bookingCategoryDisplay').textContent='Business Support Services';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-pen"></i></div>
+                        <h3>Assignments Writing</h3>
+                        <p>Academic and professional assignment writing services.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Support Services';document.getElementById('bookingServiceName').value='Assignments Writing';document.getElementById('bookingServiceDisplay').textContent='Assignments Writing';document.getElementById('bookingCategoryDisplay').textContent='Business Support Services';}return false;">Request Service</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-book"></i></div>
+                        <h3>Research Writing</h3>
+                        <p>Research proposal and report writing services.</p>
+                        <button type="button" class="btn btn-primary btn-small service-book-btn" onclick="var m=document.getElementById('bookingModal');if(m){m.style.display='flex';m.classList.add('active');document.getElementById('bookingServiceCategory').value='Business Support Services';document.getElementById('bookingServiceName').value='Research Writing';document.getElementById('bookingServiceDisplay').textContent='Research Writing';document.getElementById('bookingCategoryDisplay').textContent='Business Support Services';}return false;">Request Service</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="page-section">
+            <div class="section-header">
+                <div class="container">
+                    <h1>Latest News & Updates</h1>
+                    <p>Insights and information to help your business succeed</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="blog-grid" id="blogGrid">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img1.jpg" alt="Business Registration">
+                            <span class="blog-category">Business Tips</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Getting Started with Business Registration in Zambia</h3>
+                            <p>Learn the essential steps to register your business and comply with local regulations. From name reservation to certificate issuance, we guide you through the entire process.</p>
+                            <a href="#" class="read-more">Read More ›</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img2.jpg" alt="Tax Compliance">
+                            <span class="blog-category">Compliance</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Understanding ZRA Tax Requirements</h3>
+                            <p>A comprehensive guide to Zambia Revenue Authority registration and tax compliance. Stay compliant and avoid penalties with our expert advice.</p>
+                            <a href="#" class="read-more">Read More ›</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img3.jpg" alt="Business Growth">
+                            <span class="blog-category">Business Growth</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Why Your Business Needs Proper Documentation</h3>
+                            <p>Discover how professional business plans and profiles can help secure funding and attract investors to grow your business.</p>
+                            <a href="#" class="read-more">Read More ›</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img4.jpg" alt="NAPSA Registration">
+                            <span class="blog-category">Statutory</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>NAPSA & NHIMA: Essential Employer Registrations</h3>
+                            <p>Everything employers need to know about National Pension Scheme Authority and National Health Insurance Management Authority registrations.</p>
+                            <a href="#" class="read-more">Read More ›</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img5.jpg" alt="Business Consulting">
+                            <span class="blog-category">Consulting</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>The Importance of Professional Auditing Services</h3>
+                            <p>How regular auditing can help your business maintain financial health and build trust with stakeholders and investors.</p>
+                            <a href="#" class="read-more">Read More ›</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="img1.jpg" alt="Company Formation">
+                            <span class="blog-category">Formation</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Company vs Business Name: Which is Right for You?</h3>
+                            <p>Understanding the differences between company incorporation and business name registration to make the best choice for your venture.</p>
+                            <a href="#" class="read-more">Read More ›</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="page-section">
+            <div class="section-header">
+                <div class="container">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with our team</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="info-item">
+                            <strong><i class="fas fa-building"></i> Company</strong>
+                            <p>STINGTEC BUSINESS CONSULTANTS</p>
+                        </div>
+                        <div class="info-item">
+                            <strong><i class="fas fa-phone"></i> Phone</strong>
+                            <p>+260 977 400 295</p>
+                        </div>
+                        <div class="info-item">
+                            <strong><i class="fas fa-envelope"></i> Email</strong>
+                            <p>stingteczambiasales@gmail.com</p>
+                        </div>
+                        <div class="info-item">
+                            <strong><i class="fas fa-clock"></i> Business Hours</strong>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <h2>Send Us a Message</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="contactName">Name</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <input type="text" id="contactSubject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <h2>Our Location</h2>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3845.755686594128!2d26.9735089!3d-16.8182926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDQ5JzA1LjkiUyAyNsKwNTgnMzMuOSJF!5e0!3m2!1sen!2szm!4v1708886400000!5m2!1sen!2szm"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin" class="page-section">
+            <div class="section-header">
+                <div class="container">
+                    <h1>Admin Dashboard</h1>
+                    <p>Manage your website content</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="admin-tabs">
+                    <button class="admin-tab active" data-tab="users">Users</button>
+                    <button class="admin-tab" data-tab="services">Services</button>
+                    <button class="admin-tab" data-tab="blogs">Blogs</button>
+                    <button class="admin-tab" data-tab="bookings">Service Requests</button>
+                </div>
+                
+                <!-- Users Tab -->
+                <div class="admin-content active" id="usersTab">
+                    <h2>Registered Users</h2>
+                    <div class="table-container">
+                        <table id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Created At</th>
+                                    <th>Last Sign In</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Users will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Services Tab -->
+                <div class="admin-content" id="servicesTab">
+                    <h2>Manage Services</h2>
+                    <button class="btn btn-primary" id="addServiceBtn">Add New Service</button>
+                    <div class="table-container">
+                        <table id="servicesTable">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="servicesTableBody">
+                                <!-- Services will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Blogs Tab -->
+                <div class="admin-content" id="blogsTab">
+                    <h2>Manage Blogs</h2>
+                    <button class="btn btn-primary" id="addBlogBtn">Add New Blog</button>
+                    <div class="table-container">
+                        <table id="blogsTable">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="blogsTableBody">
+                                <!-- Blogs will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div class="admin-content" id="bookingsTab">
+                    <h2>Service Requests</h2>
+                    <div class="table-container">
+                        <table id="bookingsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Service</th>
+                                    <th>Category</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingsTableBody">
+                                <!-- Bookings will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="logo.png" alt="STINGTEC Logo" class="footer-logo">
+                    <p>Your Partner in Business Growth & Compliance</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Phone: +260 977 400 295</p>
+                    <p>Email: stingteczambiasales@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 STINGTEC BUSINESS CONSULTANTS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            
+            <!-- Sign In Form -->
+            <div class="auth-form" id="signInForm">
+                <h2>Sign In</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="#" id="switchToSignUp">Sign Up</a></p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="auth-form hidden" id="signUpForm">
+                <h2>Sign Up</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="#" id="switchToSignIn">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Service Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" id="serviceModalClose">&times;</button>
+            <h2 id="serviceModalTitle">Add Service</h2>
+            <form id="serviceForm">
+                <input type="hidden" id="serviceId">
+                <div class="form-group">
+                    <label for="serviceTitle">Title</label>
+                    <input type="text" id="serviceTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription">Description</label>
+                    <textarea id="serviceDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceIcon">Icon (emoji or text)</label>
+                    <input type="text" id="serviceIcon" value="&#9733;">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Save Service</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" id="bookingModalClose">&times;</button>
+            <h2>Request Service</h2>
+            <form id="bookingForm">
+                <input type="hidden" id="bookingServiceCategory">
+                <input type="hidden" id="bookingServiceName">
+                <div class="booking-info">
+                    <p><strong>Service:</strong> <span id="bookingServiceDisplay"></span></p>
+                    <p><strong>Category:</strong> <span id="bookingCategoryDisplay"></span></p>
+                </div>
+                <div class="form-group">
+                    <label for="bookingName">Your Name *</label>
+                    <input type="text" id="bookingName" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingEmail">Email Address *</label>
+                    <input type="email" id="bookingEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingPhone">Phone Number *</label>
+                    <input type="tel" id="bookingPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingMessage">Additional Message (Optional)</label>
+                    <textarea id="bookingMessage" rows="3" placeholder="Tell us more about your requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Blog Modal -->
+    <div class="modal" id="blogModal">
+        <div class="modal-content">
+            <button class="modal-close" id="blogModalClose">&times;</button>
+            <h2 id="blogModalTitle">Add Blog Post</h2>
+            <form id="blogForm">
+                <input type="hidden" id="blogId">
+                <div class="form-group">
+                    <label for="blogTitleInput">Title</label>
+                    <input type="text" id="blogTitleInput" required>
+                </div>
+                <div class="form-group">
+                    <label for="blogContentInput">Content</label>
+                    <textarea id="blogContentInput" rows="6" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="blogImageInput">Image URL (optional)</label>
+                    <input type="url" id="blogImageInput">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Save Blog Post</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="simple-app.js"></script>
+</body>
+</html>
